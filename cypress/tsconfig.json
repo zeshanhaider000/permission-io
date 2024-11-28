@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "target": "es6",
+    "module": "es6",
+    "allowJs": true,
+    "jsx": "react",
+    "strictNullChecks": false,
+    "strict": true,
+    "baseUrl": "../node_modules",
+    "lib": ["ESNext", "DOM"],
+    "types": ["node", "cypress", "cypress-localstorage-commands", "cypress-xpath", "@shelex/cypress-allure-plugin", "cypress-wait-until"],
+    "typeRoots": ["./support"]
+  },
+  "include": [
+    "**/*.ts",
+    "node_modules/cypress",
+    "node_modules/cypress-localstorage-commands",
+    "plugins/index.ts",
+    "support/commands.js"
+  ]
+}

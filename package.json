@@ -1,0 +1,46 @@
+{
+  "name": "permission.io",
+  "private": true,
+  "scripts": {
+    "pretest": "rimraf -r ./cypress/report/",
+    "run_test_cases": "cypress run --spec cypress/e2e/ --browser chrome --headless --reporter mochawesome --env allure=true --record --key 371d656b-fd53-4fcb-ba9d-715e5fc0a871",
+    "allure:clear": "rm -r allure-results/ allure-report cypress/screenshots || true",
+    "allure:report": "allure generate allure-results --clean -o allure-report",
+    "allure:history": "mv -f allure-report/history allure-results/history && rm -r allure-report || true",
+    "posttest": "npm run merge-reports && npm run generate-htmlreport",
+    "merge-reports": "npx mochawesome-merge ./cypress/report/*.json > ./myreport.json",
+    "generate-htmlreport": "npx marge myreport.json --reportDir ./cypress/report/"
+  },
+  "engines": {
+    "node": "~16.17.0",
+    "npm": "~8.15.0"
+  },
+  "devDependencies": {
+    "@cypress/webpack-preprocessor": "^5.4.7",
+    "@shelex/cypress-allure-plugin": "^2.40.1",
+    "@types/mocha": "^10.0.1",
+    "allure-commandline": "^2.22.1",
+    "aws-sdk": "^2.714.0",
+    "cypress": "12.8.0",
+    "cypress-localstorage-commands": "^2.2.1",
+    "cypress-mochawesome-reporter": "^3.3.0",
+    "cypress-wait-until": "^3.0.1",
+    "cypress-xpath": "^2.0.1",
+    "dotenv": "^16.0.3",
+    "mocha": "^10.8.2",
+    "mocha-allure-reporter": "^1.4.0",
+    "mochawesome-merge": "^4.3.0",
+    "nx": "^15.2.1",
+    "ts-loader": "^9.4.1",
+    "typescript": "^4.8.4",
+    "webpack": "^5.75.0",
+    "xvfb": "^0.4.0"
+  },
+  "dependencies": {
+    "@types/cypress": "^1.1.3",
+    "@types/node": "^14.11.8",
+    "mochawesome": "^7.1.3",
+    "mochawesome-report-generator": "^6.2.0",
+    "start-server-and-test": "^1.14.0"
+  }
+}

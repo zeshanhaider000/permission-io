@@ -1,0 +1,16 @@
+# Byte-compiled / optimized / DLL files
+
+.DS_Store
+# C extensions
+*.so
+
+# automation related
+node_modules/
+package-lock.json
+report/
+screenshots/
+videos/
+.idea/
+cypress.env.json
+.env
+allure-results/
