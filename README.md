@@ -24,8 +24,9 @@ nvm install 16.17.0
 ```bash
 npm install
 ```
+3. create a file named as cypress.env.json and place actual values that are available in sample.cypress.env.json.
 
-3. Open cypress dashboard using following command to run test cases manually.
+4. Open cypress dashboard using following command to run test cases manually.
 
 ```bash
 npx cypress open
